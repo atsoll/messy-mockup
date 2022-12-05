@@ -35,7 +35,7 @@
       <div ng-repeat = "tag in model.static.news.tags" ng-click="updateFilter(tag)" ng-class="model.static.news.tag_filter.includes(tag.tag)? 'tag-emph':''">{{tag.tag}}&nbsp;({{tag.num}})</div>
     </div>
     <div id="archive">
-      <div ng-repeat = "year in model.static.news.years" ng-click="model.static.news.archive_year==year.year? null: year.year" ng-class="model.blog.archive_year==year.year? 'tag-emph':''">{{year.year}}&nbsp;({{year.num}})</div>
+      <div ng-repeat = "year in model.static.news.years" ng-click="updateFilter(year)" ng-class="model.static.news.year_filter.includes(year.year)? 'tag-emph':''">{{year.year}}&nbsp;({{year.num}})</div>
     </div>
     <div id="tweet-embed">
       <twitter-timeline>

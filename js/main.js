@@ -87,7 +87,7 @@ app.controller('ctrl', function($scope, $window, $document, $uibModal, $location
           }
         }).sort((a, b) => (a.date < b.date) ? 1 : -1),
         tag_filter: [],
-        archive_years:[],
+        year_filter:[],
         tags:[]
       }
     }
@@ -171,7 +171,7 @@ app.controller('ctrl', function($scope, $window, $document, $uibModal, $location
   //right now this is one big OR filter
   //it could be changed to an AND filter pretty easily
   $scope.showNews = function(item) {
-    if($scope.model.static.news.tag_filter.length==0 && !$scope.model.static.news.archive_year) {
+    if($scope.model.static.news.tag_filter.length==0 && $scope.model.static.news.year_filter.length==0) {
       return true;
     }
     if($scope.model.static.news.tag_filter.length!=0) {
@@ -182,8 +182,8 @@ app.controller('ctrl', function($scope, $window, $document, $uibModal, $location
       }
     }
 
-    if($scope.model.static.news.archive_years.length!=0) {
-      if($scope.model.static.news.archive_years.includes(item.date.getFullYear())) {
+    if($scope.model.static.news.year_filter.length!=0) {
+      if($scope.model.static.news.year_filter.includes(item.date.getFullYear())) {
         return true
       }
     }
@@ -193,13 +193,27 @@ app.controller('ctrl', function($scope, $window, $document, $uibModal, $location
   }
 
   $scope.updateFilter = function(tag) {
-    if($scope.model.static.news.tag_filter.includes(tag.tag)){
-      $scope.model.static.news.tag_filter.splice($scope.model.static.news.tag_filter.indexOf(tag.tag), 1);
+
+    if(tag.year){
+      if($scope.model.static.news.year_filter.includes(tag.year)){
+        $scope.model.static.news.year_filter.splice($scope.model.static.news.year_filter.indexOf(tag.year), 1);
+      }
+      else {
+        $scope.model.static.news.year_filter.push(tag.year)
+      }
     }
     else {
-      $scope.model.static.news.tag_filter.push(tag.tag)
+      if($scope.model.static.news.tag_filter.includes(tag.tag)){
+        $scope.model.static.news.tag_filter.splice($scope.model.static.news.tag_filter.indexOf(tag.tag), 1);
+      }
+      else {
+        $scope.model.static.news.tag_filter.push(tag.tag)
+      }
     }
+
   }
+
+
 
 
 })
