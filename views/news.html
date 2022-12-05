@@ -1,0 +1,50 @@
+<!--make this infite scroll like CB page on RCF-->
+<!--along the side have filters à la f3y site, but also twitter embed-->
+<div class="page-content-container  col-md-10 offset-md-1" style="margin-top:10vh;">
+  <div class="row">
+
+  <div class="col-md-9" id="news-feed">
+    <div class="news-item" ng-repeat="item in model.static.news.posts" ng-style="{'border-color': !item[$index].collapsed? '#fff': '#c79310'}">
+      <div class="blog-item"  ng-if="showNews(item)" data-aos="fade-up" >
+        <div class="preview" ng-click="item[$index].collapsed = !item[$index].collapsed">
+          <div style="display: inline-block !important;  margin-bottom: 2vh;">
+
+            <div class="blog-title">{{item.title}}</div>
+            <div class="blog-date">{{item.date | date}}</div>
+            <div class="post-tags">
+              <div ng-repeat= "tag in item.tags" style="margin-right: 5px; display: inline;">{{tag}}</div>
+            </div>
+
+          </div>
+          <p>This is a short version of the text. Click title to expand. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eaedem enim utilitates poterunt eas labefactare atque pervertere. At hoc in eo M. Quibus ego vehementer assentior. Duo Reges: constructio interrete. </p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At hoc in eo M. Si longus, levis. Negare non possum. Si enim ad populum me vocas, eum. Suo genere perveniant ad extremum; Haec dicuntur inconstantissime. </p>
+        </div>
+        <div class="blog-content" uib-collapse="!item[$index].collapsed">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ergo opifex plus sibi proponet ad formarum quam civis excellens ad factorum pulchritudinem? Duo Reges: constructio interrete. </p>
+          <p>Sed emolumenta communia esse dicuntur, recte autem facta et peccata non habentur communia. Non enim quaero quid verum, sed quid cuique dicendum sit. In motu et in statu corporis nihil inest, quod animadvertendum esse ipsa natura iudicet? Sed quid minus probandum quam esse aliquem beatum nec satis beatum? Si enim ita est, vide ne facinus facias, cum mori suadeas. Cur iustitia laudatur? Aberat omnis dolor, qui si adesset, nec molliter ferret et tamen medicis plus quam philosophis uteretur. Certe, nisi voluptatem tanti aestimaretis. </p>
+          <img style="width: 20vw; height: auto; margin-left: calc(50% - 10vw); margin-top: 4vh; margin-bottom: 4vh;" src="https://miro.medium.com/max/1400/1*ARX8bbWMgvncucrHIj9LYw.jpeg"/>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iam id ipsum absurdum, maximum malum neglegi. Sint ista Graecorum; Amicitiam autem adhibendam esse censent, quia sit ex eo genere, quae prosunt. Etiam beatissimum? Atque his de rebus et splendida est eorum et illustris oratio. Duo Reges: constructio interrete. Illa argumenta propria videamus, cur omnia sint paria peccata. Tollitur beneficium, tollitur gratia, quae sunt vincla concordiae. </p>
+          <p>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Nunc omni virtuti vitium contrario nomine opponitur. Ego vero volo in virtute vim esse quam maximam; Dic in quovis conventu te omnia facere, ne doleas. Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. </p>
+          <p>Equidem e Cn. Aliter enim explicari, quod quaeritur, non potest. Neque enim disputari sine reprehensione nec cum iracundia aut pertinacia recte disputari potest. Sed eum qui audiebant, quoad poterant, defendebant sententiam suam. Quid censes in Latino fore? At enim hic etiam dolore. Quae duo sunt, unum facit. Et quidem, Cato, hanc totam copiam iam Lucullo nostro notam esse oportebit; Cupit enim dícere nihil posse ad beatam vitam deesse sapienti. Quis non odit sordidos, vanos, leves, futtiles? </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3" id="sidebar">
+    <div id="tags">
+      <div ng-repeat = "tag in model.static.news.tags" ng-click="updateFilter(tag)" ng-class="model.static.news.tag_filter.includes(tag.tag)? 'tag-emph':''">{{tag.tag}}&nbsp;({{tag.num}})</div>
+    </div>
+    <div id="archive">
+      <div ng-repeat = "year in model.static.news.years" ng-click="model.static.news.archive_year==year.year? null: year.year" ng-class="model.blog.archive_year==year.year? 'tag-emph':''">{{year.year}}&nbsp;({{year.num}})</div>
+    </div>
+    <div id="tweet-embed">
+      <twitter-timeline>
+        <a class="twitter-timeline"
+           href="https://twitter.com/ICER_C"
+           data-widget-id="673710543212052480">
+        </a>
+      </twitter-timeline>
+    </div>
+  </div>
+ </div>
+</div>

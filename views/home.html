@@ -1,0 +1,44 @@
+<div id="banner" class="d-none d-md-block">
+  <div uib-carousel interval="model.carousel.interval" active="model.carousel.active" id="banner-carousel" ng-if="model.static.banner">
+    <div uib-slide ng-repeat="slide in model.static.banner"  index="$index"">
+      <img ng-src="{{slide.img}}" style="margin-auto;">
+      <div class="carousel-caption col-lg-10 offset-lg-1">
+        <a href ="{{slide.link}}" class="banner-link" target="{{slide.link.startsWith('#!')? '':'_blank'}}">
+          <p class="banner-caption">{{slide.title}}</p><br/>
+          <p class="banner-blurb">{{slide.blurb}}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-content-container col-md-10 offset-md-1">
+  <div class="scroll-section row" data-aos="fade-up"  data-aos-duration="1000">
+    <div class="section-text col-md-6">
+      <div class="section-title">About</div>
+      <div class="section-text-content">
+        <p>A place to <b>briefly</b> describe things in general terms - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Putabam equidem satis, inquit, me dixisse. Immo alio genere; Duarum enim vitarum nobis erunt instituta capienda. Duo Reges: constructio interrete. Mihi enim satis est, ipsis non satis. </p><p>Sed quae tandem ista ratio est? Ita prorsus, inquam; Non enim iam stirpis bonum quaeret, sed animalis. Sed nunc, quod agimus; Egone quaeris, inquit, quid sentiam? </p>
+      </div>
+    </div>
+    <div class="section-image" class="col-md-6">
+      <img src="https://icer2022.acm.org/getImage/orig/TableTalk.jpg"/>
+    </div>
+  </div>
+  <div class="scroll-section row" data-aos="fade-up"  data-aos-duration="1000">
+    <div class="section-image" class="col-md-6">
+        <img src="https://gsg-61ea.kxcdn.com/media/university/600048_2_s1.jpg"/>
+    </div>
+    <div class="section-text col-md-6">
+      <div class="section-title">The Conference</div>
+      <div class="section-text-content">
+        <div id="main-text">
+          <p>A place to highlight the conference as a <i>main thing</i> - Neminem videbis ita laudatum, ut artifex callidus comparandarum voluptatum diceretur. Non enim iam stirpis bonum quaeret, sed animalis. Laboro autem non sine causa; Istam voluptatem perpetuam quis potest praestare sapienti? Solum praeterea formosum, solum liberum, solum civem, stultost; Sed quid attinet de rebus tam apertis plura requirere? Sic vester sapiens magno aliquo emolumento commotus cicuta, si opus erit, dimicabit. Nihilo beatiorem esse Metellum quam Regulum. </p>
+        </div>
+        <div class="button-set">
+          <a href="#!/conference" class="action-button">Learn More</a>
+          <a href="https://conf.researchr.org/home/icer-2023" target="_blank" class="action-button">ICER 2023</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
