@@ -4,6 +4,9 @@
 var vh = window.innerHeight/100;
 var vw = window.innerWidth/100;
 
+//for gh pages workaround
+prefix = "/messy-mockup"
+
 
 
 
@@ -15,19 +18,19 @@ app.config(function($routeProvider) {
 
     $routeProvider
     .when("/", {
-        templateUrl : "../views/home.html",
+        templateUrl : prefix + "/views/home.html",
     })
     .when ("/conference", {
-        templateUrl : "../views/conference.html",
+        templateUrl : prefix + "/views/conference.html",
     })
     .when ("/news", {
-        templateUrl : "../views/news.html",
+        templateUrl : prefix + "/views/news.html",
     })
     .when ("/resources", {
-        templateUrl : "../views/resources.html",
+        templateUrl : prefix + "/views/resources.html",
     })
     .when ("/organization", {
-        templateUrl : "../views/organization.html",
+        templateUrl : prefix + "/views/organization.html",
     })
 
 });
